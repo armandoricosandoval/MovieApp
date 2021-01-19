@@ -1,7 +1,7 @@
 import { RECEIVE_PELICULAS, RECEIVE_PELIUNICA,CREATE_LIST } from '../constants';
 import axios from 'axios';
 
-const API = 'https://www.omdbapi.com/?apikey=20dac387'
+const API = 'https://api.themoviedb.org/3/movie/550?api_key=6f80061b8f7dc41f74dd9c9a459deda4'
 const setPeliculas = peliculas => ({ type: RECEIVE_PELICULAS, payload: peliculas })
 
 const selectPelis = peliUnica => ({ type: RECEIVE_PELIUNICA, payload: peliUnica })
