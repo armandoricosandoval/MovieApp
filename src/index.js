@@ -1,7 +1,19 @@
+
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import App from './App';
+import { Provider } from 'react-redux';
+import store from './store';
+
+
+import 'bootswatch/dist/darkly/bootstrap.min.css';
 
 ReactDOM.render(
-    <h1>configurando todo desde 0 </h1>, 
-    document.getElementById('root'))
-
+    <Provider store={store} >
+        <BrowserRouter>
+            <Route path="/" component={App} />
+        </BrowserRouter>
+    </Provider>,
+    document.getElementById('root')
+);
