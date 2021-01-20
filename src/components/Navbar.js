@@ -9,7 +9,7 @@ const Navbar = (props) => {
     return (
         
         <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-        <a className="navbar-brand" href="#">Home Movies </a>       
+        <Link to="/movie" className="navbar-brand" >Home Movies </Link>       
       
         <div className="collapse navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav mr-auto">
@@ -19,14 +19,14 @@ const Navbar = (props) => {
                         <Link className="nav-link" onClick={props.logout} to={`/movie`}>Sign-Out</Link>
                     </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={`/profile`}>Perfil</Link>
+                            <Link className="nav-link" to={`/perfil`}>Perfil</Link>
                         </li> </div>) : (
                         <div className="collapse navbar-collapse" id="navbarColor02">
                              <li className="nav-item">
                             <Link className="nav-link" to={`/login`}>Login</Link>
                         </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to={`/register`}>Register</Link>
+                                <Link className="nav-link" to={`/signup`}>Register</Link>
                             </li> 
                         </div>)}
             
