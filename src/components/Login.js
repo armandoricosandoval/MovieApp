@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
-
-import { useAuth } from "../contexts/AuthContext"
+import { Form, Button, Card, Alert } from "react-bootstrap"
+import { useAuth } from "../firebase/contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 
 export default function Login( ) {
@@ -18,7 +18,7 @@ export default function Login( ) {
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      history.push("/perfil")
+      history.push("/")
     } catch {
       setError("Failed to log in")
     }
@@ -28,28 +28,28 @@ export default function Login( ) {
 
   return (
     <>
-      <div className="card">
-        <div className="card-body">
+      <Card>
+        <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <form onSubmit={handleSubmit}>
-            <div className="form-group" id="email">
-              <label>Email</label>
-              <input type="email" ref={emailRef} required />
-            </div>
-            <div className="form-group" id="password">
-              <label>Password</label>
-              <input type="password" ref={passwordRef} required />
-            </div>
-            <button disabled={loading} className="w-100" type="submit">
+          <Form onSubmit={handleSubmit}>
+            <Form.Group id="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" ref={passwordRef} required />
+            </Form.Group>
+            <Button disabled={loading} className="w-100" type="submit">
               Log In
-            </button>
-          </form>
+            </Button>
+          </Form>
           <div className="w-100 text-center mt-3">
             <Link to="/forgot-password">Forgot Password?</Link>
           </div>
-        </div>
-      </div>
+        </Card.Body>
+      </Card>
       <div className="w-100 text-center mt-2">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>

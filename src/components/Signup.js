@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react"
-
-import { useAuth } from "../contexts/AuthContext"
+import { Form, Button, Card, Alert } from "react-bootstrap"
+import { useAuth } from "../firebase/contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 
 export default function Signup() {
   const emailRef = useRef()
-  const passwordRef = useRef()  
+  const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const { signup } = useAuth()
   const [error, setError] = useState("")
@@ -13,7 +13,6 @@ export default function Signup() {
   const history = useHistory()
 
   async function handleSubmit(e) {
-    
     e.preventDefault()
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
@@ -24,7 +23,8 @@ export default function Signup() {
       setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      history.push("/perfil")
+      .then(res=>{console.log(res.user.uid)})
+      history.push("/")
     } catch {
       setError("Failed to create an account")
     }
@@ -33,37 +33,33 @@ export default function Signup() {
   }
 
   return (
-    <div className="container">
-      <div className="col s6 m4 l6">
-        <div className="#eeeeee grey lighten-3">
-        <div className="content-center">
-          <h2>Sign Up</h2>
-          {error && <span>Error al iniciar sesion</span>}
-          <form className="col s12 m4 l6" onSubmit={handleSubmit}>
-          <div className="input-field"> 
-            <label >Email</label>
-            <input className="form-Control" type="email" ref={emailRef} placeholder="Enter email" required />
-          </div>
-          <div className="input-field"> 
-            <div className="form-group" id="password">
-              <label >Password</label>
-              <input classNmae="form-Control" type="password" ref={passwordRef} placeholder="Enter Password" required />
-            </div>
-          </div>
-          <div className="input-field">
-            <div className="form-group" id="password-confirm">
-              <label >Password</label>
-              <input class="form-Control" type="password" ref={passwordConfirmRef} placeholder="Enter Password" required />
-            </div>
-          </div>
-          <button  disabled={loading} type="submit" className="waves-effect waves-light btn-small">Sign Up</button>
-          </form>
-          <div>
-            Already have an account? <Link to="/login">Log In</Link>
-          </div>
-          </div>
-        </div>
+    <>
+      <Card>
+        <Card.Body>
+          <h2 className="text-center mb-4">Sign Up</h2>
+          {error && <Alert variant="danger">{error}</Alert>}
+          <Form onSubmit={handleSubmit}>
+            <Form.Group id="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" ref={passwordRef} required />
+            </Form.Group>
+            <Form.Group id="password-confirm">
+              <Form.Label>Password Confirmation</Form.Label>
+              <Form.Control type="password" ref={passwordConfirmRef} required />
+            </Form.Group>
+            <Button disabled={loading} className="w-100" type="submit">
+              Sign Up
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+      <div className="w-100 text-center mt-2">
+        Already have an account? <Link to="/login">Log In</Link>
       </div>
-    </div>
+    </>
   )
 }

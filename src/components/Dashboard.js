@@ -1,46 +1,54 @@
 import React, { useState } from "react"
-import { useAuth } from "../contexts/AuthContext"
+import { Card, Button, Alert ,FormControl,InputGroup} from "react-bootstrap"
+import { useAuth } from "../firebase/contexts/AuthContext"
 import { useHistory } from "react-router-dom"
 
 export default function Dashboard() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
+ 
 
   async function handleLogout() {
-    setError("");
+    setError("")
 
     try {
-      await logout();
-      history.push("/login");
+      await logout()
+      history.push("/login")
     } catch {
-      setError("Failed to log out");
+      setError("Failed to log out")
     }
   }
-  
+
+  const handleSubmit =(e)=>{
+    e.preventdeafult()
+    setNickname(e)
+  }
+
   return (
-    <div className="container">
-      <div className="col s12 m6">
-        <div className="#eeeeee grey lighten-3">
+    <>
+      <Card>
+        <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
-          {error && <span>error</span>}
+          {error && <Alert variant="danger">{error}</Alert>}
           <strong>Email:</strong> {currentUser.email}
-          <br />
-          <strong>Name:</strong>{" "}
-          {currentUser.displayName
-            ? currentUser.displayName
-            : currentUser.email}
-          <div>            
-            <button
-              onClick={handleLogout}
-              type="submit"
-              className="waves-effect waves-light btn-small"
-            >
-              <label>Log Out</label>
-            </button>
-          </div>
-        </div>
+          <InputGroup className="mb-3" onSubmit={()=>{handleSubmit()}}>
+            <FormControl 
+              placeholder="name"              
+              aria-describedby="basic-addon2"
+            />
+            <InputGroup.Append>
+              <Button  variant="outline-secondary">Button</Button>
+            </InputGroup.Append>
+          </InputGroup>
+
+        </Card.Body>
+      </Card>
+      <div className="w-100 text-center mt-2">
+        <Button variant="link" onClick={handleLogout}>
+          Log Out
+        </Button>
       </div>
-    </div>
-  );
+    </>
+  )
 }
