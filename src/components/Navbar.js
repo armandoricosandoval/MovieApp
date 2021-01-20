@@ -14,7 +14,7 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav mr-auto">
           {props.user.id ? (
-                    <div className="collapse navbar-collapse" id="navbarColor02"> 
+                    <div className="collapse navbar-collapse" id="navbarColor01"> 
                     <li className="nav-item">
                         <Link className="nav-link" onClick={props.logout} to={`/movie`}>Sign-Out</Link>
                     </li>
@@ -31,8 +31,12 @@ const Navbar = (props) => {
                         </div>)}
             
           </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input className="form-control mr-sm-2" type="text" placeholder="Search"/>
+          <form onSubmit={props.handleSubmit} className="form-inline my-2 my-lg-0">
+            <input 
+            className="form-control mr-sm-1" type="text" 
+            placeholder="Search"
+            onChange={props.handleChange}
+            />
             <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
