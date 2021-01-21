@@ -1,7 +1,7 @@
 import { RECEIVE_MOVIES, RECEIVE_MOVIE } from "../../constants";
 import axios from 'axios';
 
-const API= 'https://api.themoviedb.org/3/search/movie?api_key=6f80061b8f7dc41f74dd9c9a459deda4&query=batman'
+
 
 
 
@@ -40,7 +40,7 @@ export const fetchMovies = ({ title = "", year = "", type = "" }) => (
 
 export const fetchMovie = (movieId) => (dispatch) => {
   return axios
-    .get(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=6f80061b8f7dc41f74dd9c9a459deda4`)
+    .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=6f80061b8f7dc41f74dd9c9a459deda4`)
     .then((res) => res.data)
     .then((movie) => dispatch(receiveMovie(movie)))
     .catch((err) => console.log(err));

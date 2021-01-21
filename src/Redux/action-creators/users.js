@@ -7,12 +7,11 @@ const addUser = newUser => ({ type: CREATE_USERS, payload: newUser  })
 
 export const fetchUsers= () => {
     return (dispatch) => {
-        axios.get('/register')
+        axios.get('/signup')
             .then(res => res.data)
             .then(Users => dispatch(setUsers(Users)));
     }
 }
-
 
 
 export const fetchUser = (email,password) => {
@@ -35,7 +34,7 @@ export const fetchOutUser = () => {
 
 export const createUsers= (email,password) => {
     return (dispatch) => {
-       return axios.post('/register',{email:email,password:password})
+       return axios.post('/signup',{email:email,password:password})
             .then(res => 
                  res.data
             )
