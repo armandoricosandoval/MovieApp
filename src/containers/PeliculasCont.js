@@ -27,9 +27,9 @@ const PeliculasCont = () => {
 
   return (
     
-      <div class="wrapper">
+      <div className="wrapper">
         <h1>List Movies</h1>        
-        <div class="cols">
+        <div className="cols">
             {movies.map((movie, i) => (
               <Peliculas
                 key={i}

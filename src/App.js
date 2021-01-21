@@ -17,6 +17,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import NavbarCont from './containers/NavbarCont';
 
 import PeliculasCont from './containers/PeliculasCont';
+import HomeCont from './containers/HomeCont';
 
 
 const App = () => {   
@@ -28,11 +29,12 @@ const App = () => {
             
         <AuthProvider>
             <Switch>
+                <Route exact path='/' component={HomeCont } />
                 <Route exact path='/movies' component={PeliculasCont } />
-                <Route exact path="/signup" component={Signup} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/forgot-password" component={ForgotPassword} />
-                <Route exact path="/profile" component={Dashboard} />
+                <Route path="/signup" component={Signup} />
+                <Route path="/login" component={Login} />
+                <Route path="/forgot-password" component={ForgotPassword} />
+                <Route path="/profile" component={Dashboard} />
                 <Redirect from='/' to='/movies'></Redirect>
             </Switch>
         </AuthProvider>

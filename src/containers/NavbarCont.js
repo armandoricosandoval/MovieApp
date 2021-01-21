@@ -28,7 +28,7 @@ const NavbarCont = ({user,logout}) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(fetchMovies(data))
-      .then(() => history.push("/"));
+      .then(() => history.push("/movie"));
   }
 
   return (
