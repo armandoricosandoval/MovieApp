@@ -1,8 +1,11 @@
 import React,{useState,useEffect} from 'react'
+import { useHistory } from "react-router-dom";
 import HomePelis from '../components/HomePelis'
+import HomeTv from '../components/HomeTv'
 
 const HomeCont = () => {
     const [mov,setMov]=useState([])
+    const history = useHistory();
 
     useEffect(()=>{
         fetchMov()
@@ -14,14 +17,16 @@ const HomeCont = () => {
         console.log(movs.results)
         setMov(movs.results)
     }
-
+    const singleMovie = () => {
+      history.push("/singleMovie");
+    };
 
   return (
     <div className="wrapper">
         <h1>List Movies</h1>        
         <div className="cols">
-        { mov.map((pelis,i)=>(
-            <HomePelis key={i} pelis={pelis}/>
+        { mov.map((pelis,i)=>(           
+            <HomePelis key={i} pelis={pelis} singleMovie={singleMovie}/>       
         ))}
      </div>
     </div>

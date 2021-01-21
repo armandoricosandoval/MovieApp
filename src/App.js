@@ -18,19 +18,19 @@ import NavbarCont from './containers/NavbarCont';
 
 import PeliculasCont from './containers/PeliculasCont';
 import HomeCont from './containers/HomeCont';
+import SingleMovCont from './containers/SingleMovCont';
 
 
 const App = () => {   
 
   return (
     <>
-        
-            <NavbarCont />        
-            
+    <NavbarCont />        
         <AuthProvider>
             <Switch>
                 <Route exact path='/' component={HomeCont } />
                 <Route exact path='/movies' component={PeliculasCont } />
+                <Route path='/movies/:movieId' component={SingleMovCont } />
                 <Route path="/signup" component={Signup} />
                 <Route path="/login" component={Login} />
                 <Route path="/forgot-password" component={ForgotPassword} />

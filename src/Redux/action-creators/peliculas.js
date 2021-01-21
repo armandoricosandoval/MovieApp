@@ -15,7 +15,7 @@ const receiveMovie = (movie) => ({
   movie,
 });
 
-export const fetchMovies = ({ title = "", year = "", type = "" }) => (
+export const fetchMovies = ({ title = "", type = "" }) => (
   dispatch
 ) => {
   return axios

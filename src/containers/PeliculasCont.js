@@ -8,16 +8,14 @@ import '../css/card.css';
 const PeliculasCont = () => {
   const movies = useSelector((state) => state.movies.list);
   const history = useHistory();
-  const [sortingKey, setSortingKey] = useState("");
+  
 
   const dispatch = useDispatch();
 
-  const backToSearch = () => {
-    history.push("/");
+  const singleMovie = () => {
+    history.push("/singleMovie");
   };
-  const sortItems = (e) => {
-    setSortingKey(e.target.innerHTML);
-  };
+ 
   const handleButton = (currentMovie) => {
     dispatch(addMovie(currentMovie))
       .then(() => history.push(`/profile`))
@@ -33,10 +31,8 @@ const PeliculasCont = () => {
             {movies.map((movie, i) => (
               <Peliculas
                 key={i}
-                movie={movie}
-                sortingKey={sortingKey}
-                sortItems={sortItems}
-                backToSearch={backToSearch}
+                movie={movie}          
+                singleMovie={singleMovie}
                 handleButton={handleButton} />
             ))}
 
