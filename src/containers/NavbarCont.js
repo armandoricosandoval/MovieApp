@@ -5,6 +5,7 @@ import { fetchMovies } from "../Redux/action-creators/peliculas";
 
 
 import Navbar from '../components/Navbar';
+import PeliculasCont from "./PeliculasCont";
 
 
 const NavbarCont = () => {
@@ -27,10 +28,11 @@ const NavbarCont = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(fetchMovies(data))
-      .then(() => history.push("/movies"));
+      .then(() => history.push("/"));
   }
 
   return (
+    <>
     <div className='container'>
       <Navbar
         handleSubmit={handleSubmit}
@@ -38,6 +40,10 @@ const NavbarCont = () => {
         data={data}
       />
     </div>
+    <div>
+      <PeliculasCont/>
+    </div>
+    </>
   )
 }
 

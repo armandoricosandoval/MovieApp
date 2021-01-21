@@ -11,21 +11,25 @@ import ForgotPassword from "./components/ForgotPassword"
 
 //containers
 import NavbarCont from './containers/NavbarCont';
-import Navbar from './components/Navbar';
+
+import PeliculasCont from './containers/PeliculasCont';
 
 export default class App extends React.Component {
     render() {
         return (
             <>
-                    <NavbarCont/>
+                <div className="container">
+                    <NavbarCont />
+                </div>
+
                 <AuthProvider>
                     <Switch>
-                        <Route exact path='/' component={NavbarCont}></Route>
-                        <Route  path="/signup" component={Signup} />
-                        <Route  path="/login" component={Login} />
-                        <Route  path="/forgot-password" component={ForgotPassword} />
-                        <Route  path="/perfil" component={Dashboard} />
-                        <Redirect  to='/'></Redirect>
+                        <Route exact path='/movies' component={PeliculasCont} />
+                        <Route exact path="/signup" component={Signup} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/forgot-password" component={ForgotPassword} />
+                        <Route exact path="/profile" component={Dashboard} />
+                        <Redirect from='/' to='/movies'></Redirect>
                     </Switch>
                 </AuthProvider>
 
