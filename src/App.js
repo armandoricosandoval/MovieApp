@@ -9,31 +9,43 @@ import Login from "./components/Login"
 import ForgotPassword from "./components/ForgotPassword"
 
 
+//style
+
+import "bootstrap/dist/css/bootstrap.min.css"
+
 //containers
 import NavbarCont from './containers/NavbarCont';
 
 import PeliculasCont from './containers/PeliculasCont';
+import HomeCont from './containers/HomeCont';
+import SingleMovCont from './containers/SingleMovCont';
 
-export default class App extends React.Component {
-    render() {
-        return (
-            <>
-                <div className="container">
-                    <NavbarCont />
-                </div>
 
-                <AuthProvider>
-                    <Switch>
-                        <Route exact path='/movies' component={PeliculasCont} />
-                        <Route exact path="/signup" component={Signup} />
-                        <Route exact path="/login" component={Login} />
-                        <Route exact path="/forgot-password" component={ForgotPassword} />
-                        <Route exact path="/profile" component={Dashboard} />
-                        <Redirect from='/' to='/movies'></Redirect>
-                    </Switch>
-                </AuthProvider>
+const App = () => {   
 
-            </>
-        );
-    }
-};
+  return (
+    <>
+    <NavbarCont />        
+        <AuthProvider>
+            <Switch>
+                <Route exact path='/' component={HomeCont } />
+                <Route exact path='/movies' component={PeliculasCont } />
+                <Route path='/movies/:movieId' component={SingleMovCont } />
+                <Route path="/signup" component={Signup} />
+                <Route path="/login" component={Login} />
+                <Route path="/forgot-password" component={ForgotPassword} />
+                <Route path="/profile" component={Dashboard} />
+                <Redirect from='/' to='/movies'></Redirect>
+            </Switch>
+        </AuthProvider>
+        
+        
+    </>
+);
+}
+
+
+export default App
+
+
+

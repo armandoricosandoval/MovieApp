@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { fetchMovies } from "../Redux/action-creators/peliculas";
 
 
 import Navbar from '../components/Navbar';
-import PeliculasCont from "./PeliculasCont";
 
 
-const NavbarCont = () => {
+
+const NavbarCont = ({user,logout}) => {
   const [data, setData] = useState({
     title: "",
     type: "Movie",
@@ -28,21 +28,21 @@ const NavbarCont = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(fetchMovies(data))
-      .then(() => history.push("/"));
+      .then(() => history.push("/movie"));
   }
 
   return (
     <>
-    <div className='container'>
+    
       <Navbar
         handleSubmit={handleSubmit}
         handleChange={handleChange}
         data={data}
+        user={user}
+        logout={logout}
       />
-    </div>
-    <div>
-      <PeliculasCont/>
-    </div>
+    
+    
     </>
   )
 }

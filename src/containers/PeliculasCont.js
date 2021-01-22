@@ -1,46 +1,44 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import Peliculas from "../components/peliculas.js";
-import { useAuth } from "../firebase/contexts/AuthContext"
+import Peliculas from "../components/Peliculas.js";
 
 import { addMovie } from "../Redux/action-creators/favs";
-
+import '../css/card.css';
 const PeliculasCont = () => {
   const movies = useSelector((state) => state.movies.list);
   const history = useHistory();
-  const [sortingKey, setSortingKey] = useState("");
-  const currentUser = useAuth();
+  
+
   const dispatch = useDispatch();
 
-  const backToSearch = () => {
-    history.push("/");
+  const singleMovie = () => {
+    history.push("/singleMovie");
   };
-  const sortItems = (e) => {
-    setSortingKey(e.target.innerHTML);
-  };
+ 
   const handleButton = (currentMovie) => {
     dispatch(addMovie(currentMovie))
       .then(() => history.push(`/profile`))
       .catch((err) => console.log(err));
   };
-console.log(currentUser);
-  
+
+
   return (
-    <>
-    <div className="row">  
-    { movies.map((movie,i)=>(
-       <Peliculas
-       key={i}
-       movie={movie}
-       sortingKey={sortingKey}
-       sortItems={sortItems}
-       backToSearch={backToSearch}
-       currentUser={currentUser}
-       handleButton={handleButton}/>   
-       ))}
-       </div>
-     </>
+    
+      <div className="wrapper">
+        <h1>List Movies</h1>        
+        <div className="cols">
+            {movies.map((movie, i) => (
+              <Peliculas
+                key={i}
+                movie={movie}          
+                singleMovie={singleMovie}
+                handleButton={handleButton} />
+            ))}
+
+          </div>
+          </div>
+        
   )
 }
 

@@ -10,8 +10,7 @@ export default function Dashboard() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  
- 
+   
  
 
   async function handleLogout() {

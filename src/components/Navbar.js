@@ -2,36 +2,26 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import '../css/nav.css'
 
+const Navbar = ({ data, handleSubmit, handleChange, user, logout }) => {
 
-const Navbar = ({ data, handleSubmit, handleChange, user }) => {
 
     return (
-
-        <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-            <Link to="/movie" className="navbar-brand" >Home Movies </Link>
-
-            <div className="collapse navbar-collapse" id="navbarColor01">
-                <ul className="navbar-nav mr-auto">
-                    {/* {user.id ? (
-                    <div className="collapse navbar-collapse" id="navbarColor01"> 
-                    <li className="nav-item">
-                        <Link className="nav-link" onClick={props.logout} to={`/movie`}>Sign-Out</Link>
-                    </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to={`/perfil`}>Perfil</Link>
-                        </li> </div>) : ( */}
-                    <div className="collapse navbar-collapse" id="navbarColor02">
-                        <li className="nav-item">
-                            <Link className="nav-link" to={`/login`}>Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to={`/signup`}>Register</Link>
-                        </li>
+        <>
+            <nav id="navbar" className="">
+                <div className="nav-wrapper">
+                    <div className="logo">
+                        <a href="#home"><i className="fas fa-chess-knight"></i> Logo</a>
                     </div>
-
-                </ul>
-                <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
+                    <ul id="menu">
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/login">Login</Link></li>
+                        <li><Link to="/signup">Register</Link></li>
+                        <li><a href="www.linkedin.com/in/armando-rico-b14a90200">Contact</a></li>                        
+                    </ul>
+                    <ul id="search">
+                    <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
                 <div className="form-group">                      
                         <select 
                         className="form-control" 
@@ -53,11 +43,22 @@ const Navbar = ({ data, handleSubmit, handleChange, user }) => {
                         onKeyDown={handleChange}
                     />
                     <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
+                </form> 
+
+                    </ul>
+                    
+                   
+                </div>
+              
+            </nav>
+
+
+          
+        </>
     );
 };
 
 
 export default Navbar;
+
+
