@@ -12,7 +12,7 @@ const Navbar = ({ data, handleSubmit, handleChange, user, logout }) => {
             <nav id="navbar" className="">
                 <div className="nav-wrapper">
                     <div className="logo">
-                        <a href="#home"><i className="fas fa-chess-knight"></i> Logo</a>
+                        <a href="/"><i className="fas fa-chess-knight"></i>Armand</a>
                     </div>
                     <ul id="menu">
                         <li><Link to="/">Home</Link></li>
@@ -22,17 +22,7 @@ const Navbar = ({ data, handleSubmit, handleChange, user, logout }) => {
                     </ul>
                     <ul id="search">
                     <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
-                <div className="form-group">                      
-                        <select 
-                        className="form-control" 
-                        id="selectType"
-                        onChange={handleChange}
-                        value={data.type}
-                        >
-                        <option value='movie'>Movie</option>
-                        <option value='series'>Series</option>
-                        </select>
-                    </div>
+               
                     <input
                         className="form-control mr-sm-1" type="text"
                         placeholder="Search"

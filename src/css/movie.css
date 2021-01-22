@@ -1,15 +1,12 @@
-body {
-  font-family: 'Karla', sans-serif;
-  color: #232323;
-}
-.container {  
+
+.containerMov{  
   height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px;
 }
-.card {
+.card1 {
   height: 400px;
   background-color: #fff;
   max-width: 800px;
@@ -18,7 +15,7 @@ body {
   display: grid;
   grid-template-column: repeat(5, 1fr);
 }
-.card .img-container {
+.card1 .img-container {
   width: 280px;
   height: 100%;
   grid-column: 2;
@@ -32,14 +29,7 @@ body {
   border-left: 1px solid #ccc;
   align-content: center;
 }
-h4 {
-  text-transform: uppercase;
-  color: #555;
-}
-h1 {
-  margin-bottom: 0;
-  color: #232323;
-}
+
 .card-content .author {
   border-top: 1px solid #cdcdcd;
   font-weight: 700;
@@ -48,16 +38,61 @@ h1 {
   color: #555;
 }
 
-@media only screen and (max-width:600px) {
-  .card {
-    display: block;
-  }
-  .card .img-container {
-    height: 400px;
-    width: 100%;
-  }
-  .card-content {
-    border: 0;
-    border-top: 1px solid #ccc;
-  }
+/* rating*/
+
+.stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
+.stars__text {
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 0.5;
+  margin-left: 0.5em;
+}
+
+/* Ratings */
+.rating:not(:checked) > input {
+  display: none;
+}
+
+#like:not(:checked) > label {
+  cursor: pointer;
+  float: right;
+  width: 30px;
+  height: 30px;
+  display: block;
+  color: rgba(233, 54, 40, 0.4);
+  line-height: 33px;
+  text-align: center;
+}
+
+#like:not(:checked) > label:hover,
+#like:not(:checked) > label:hover ~ label {
+  color: rgba(233, 54, 40, 0.6);
+}
+
+#like > input:checked + label:hover,
+#like > input:checked + label:hover ~ label,
+#like > input:checked ~ label:hover,
+#like > input:checked ~ label:hover ~ label,
+#like > label:hover ~ input:checked ~ label {
+  color: rgba(233, 54, 40, 0.8);
+}
+
+#like > input:checked ~ label {
+  color: #e93628;
+}
+

@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap"
 import '../css/movie.css';
 
 const SingleMovie = ({ currentMovie }) => {
@@ -17,18 +18,43 @@ const SingleMovie = ({ currentMovie }) => {
           <div className="divider"></div>
           <p className="paragraph" style={{ text: "justify" }}>{currentMovie.overview}</p>          
         </div> */}
-      <div className="container">
-        <div className="card">
-          <div className="img-container"  style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w200${currentMovie.poster_path})` }}></div>
+      <div className="containerMov">
+        <div className="card1">
+          <div className="img-container" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w200${currentMovie.poster_path})` }}></div>
           <div className="card-content">
             <h4>{currentMovie.release_date}</h4>
             <h1>{currentMovie.original_title}</h1>
-            <br/>
+            <br />
             <p className="excerpt"><b>overview:</b>{currentMovie.overview}</p>
-            {/* <p className="author">By Jrom</p> */}
+
+            
+            <div className="stars" >
+            <Button variant="outline-secondary"> <a href="https://www.themoviedb.org/movie/upcoming"> WEBSITE</a></Button>
+              <div className="rating" id="like">
+                <input type="radio" id="start_5" name="like" value="5" />
+                <label for="start_5" title="Five">&#10084;</label>
+
+                <input type="radio" id="start_4" name="like" value="4" />
+                <label for="start_4" title="Four">&#10084;</label>
+
+                <input type="radio" id="start_3" name="like" value="3" />
+                <label for="start_3" title="Three">&#10084;</label>
+
+                <input type="radio" id="start_2" name="like" value="2" />
+                <label for="start_2" title="Two">&#10084;</label>
+
+                <input type="radio" id="start_1" name="like" value="1" />
+                <label for="start_1" title="One">&#10084;</label>
+              </div>
+              <p className="stars__text">{currentMovie.popularity}</p>
+            </div>
           </div>
         </div>
       </div>
+    
+                
+        
+      
     </>
 
 
