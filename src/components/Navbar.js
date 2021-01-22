@@ -12,7 +12,7 @@ const Navbar = ({ data, handleSubmit, handleChange, user, logout }) => {
             <nav id="navbar" className="">
                 <div className="nav-wrapper">
                     <div className="logo">
-                        <a href="/"><i className="fas fa-chess-knight"></i>Armand</a>
+                        <a href="https://www.linkedin.com/in/armando-rico-b14a90200"><i className="fas fa-chess-knight"></i>Armando</a>
                     </div>
                     <ul id="menu">
                         <li><Link to="/">Home</Link></li>

@@ -13,6 +13,7 @@ const Categories = () => {
     const [movfam, setMovfam] = useState([])
     const [movrom, setMovrom] = useState([])
     const [movdra, setMovdra] = useState([])
+    const [movthri, setMovthri] = useState([])
 
    
 
@@ -22,6 +23,7 @@ const Categories = () => {
         fetchMovFam()
         fetchMovRom()
         fetchMovDra()
+        fetchMovTrhi()
     }, [key])
 
     const fetchMovAct = async () => {
@@ -48,6 +50,11 @@ const Categories = () => {
         const data = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=6f80061b8f7dc41f74dd9c9a459deda4&language=es-ES&sort_by=primary_release_date.desc&page=1&with_genres=878')
         const movs = await data.json()        
         setMovdra(movs.results)
+    }
+    const fetchMovTrhi= async () => {
+        const data = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=6f80061b8f7dc41f74dd9c9a459deda4&language=es-ES&sort_by=primary_release_date.desc&page=1&with_genres=27')
+        const movs = await data.json()        
+        setMovthri(movs.results)
     }
     return (
         <Tabs
@@ -157,6 +164,30 @@ const Categories = () => {
                     <h1>List Movies the Drama</h1>
                     <div className="cols">
                         {movdra.map((a) => (
+                            <div key={a.id} className="col-3" ontouchstart="this.classList.toggle('hover');">
+                                <Link to={`/movies/${a.id}`}>
+                                    <div className="containerCards ">
+                                        <div
+                                            className="front"
+                                            style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w200${a.poster_path})` }}>
+                                        </div>
+                                        <div className="back">
+                                            <div className="inner">
+                                                <p>{a.title}</p>
+                                                <span>{a.tagline}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>))}
+                    </div>
+                </div>
+            </Tab>
+            <Tab eventKey="Thriller" title="Thriller" >
+            <div className="wrapper">
+                    <h1>List Movies the Thriller</h1>
+                    <div className="cols">
+                        {movthri.map((a) => (
                             <div key={a.id} className="col-3" ontouchstart="this.classList.toggle('hover');">
                                 <Link to={`/movies/${a.id}`}>
                                     <div className="containerCards ">

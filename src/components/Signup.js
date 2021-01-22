@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom"
 
 export default function Signup() {
   const emailRef = useRef()
-  const nameRef = useRef()
+ 
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const { signup } = useAuth()
@@ -23,7 +23,7 @@ export default function Signup() {
     try {
       setError("")
       setLoading(true)
-      await signup(nameRef.current.value,emailRef.current.value, passwordRef.current.value)
+      await signup(emailRef.current.value, passwordRef.current.value)
       .then(res=>{console.log(res.user.uid)})
       history.push("/")
     } catch {
@@ -39,11 +39,7 @@ export default function Signup() {
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-          <Form.Group id="name">
-              <Form.Label>Name</Form.Label>
-              <Form.Control type="text" ref={nameRef} required />
-            </Form.Group>
+          <Form onSubmit={handleSubmit}>          
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
