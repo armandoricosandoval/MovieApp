@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import HomePelis from '../components/HomePelis'
-import HomeTv from '../components/HomeTv'
+
 
 const HomeCont = () => {
     const [mov,setMov]=useState([])

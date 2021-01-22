@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams} from "react-router-dom";
 import { fetchMovie } from "../Redux/action-creators/peliculas";
 import SingleMovie from "../components/SingleMovie";
-
+import '../css/movie.css';
 
 
 const SingleMovCont = () => {    
@@ -17,7 +17,9 @@ const SingleMovCont = () => {
 
  
   return (
+    
     <SingleMovie currentMovie={currentMovie} />
+    
   );
 }
 

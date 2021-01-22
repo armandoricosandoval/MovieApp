@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CardDeck } from "react-bootstrap";
+
 
 import '../css/card.css';
 
@@ -17,8 +17,8 @@ const HomePelis = ({pelis,singleMovie}) => {
             </div>
             <div className="back" >
               <div className="inner">
-                <p>{pelis.name}</p>
-                <p>{pelis.media_type}</p>
+                <h2>{pelis.name}</h2>
+                <h3>{pelis.media_type}</h3>
                 <span>popularity:{pelis.popularity}</span>
               </div>
             </div>

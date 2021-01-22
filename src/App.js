@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 // configuracion firebase para auth
@@ -10,7 +10,7 @@ import ForgotPassword from "./components/ForgotPassword"
 
 
 //style
-import { Container,Row,Col} from "react-bootstrap";
+
 import "bootstrap/dist/css/bootstrap.min.css"
 
 //containers
