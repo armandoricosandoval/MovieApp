@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
+
 import { Tabs, Tab } from "react-bootstrap"
 
 //este componente no es el mas el mejor ya no se mas........... por mejorar
@@ -14,7 +14,7 @@ const Categories = () => {
     const [movrom, setMovrom] = useState([])
     const [movdra, setMovdra] = useState([])
 
-    const history = useHistory();
+   
 
     useEffect(() => {
         fetchMovAct()
