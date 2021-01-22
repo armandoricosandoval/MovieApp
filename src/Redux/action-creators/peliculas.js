@@ -2,9 +2,6 @@ import { RECEIVE_MOVIES, RECEIVE_MOVIE } from "../../constants";
 import axios from 'axios';
 
 
-
-
-
 export const receiveMovies = (movies) => ({
   type: RECEIVE_MOVIES,
   movies,
@@ -19,6 +16,7 @@ export const fetchMovies = ({ title = "", type = "" }) => (
   dispatch
 ) => {
   return axios
+  
     .get(`https://api.themoviedb.org/3/search/movie?api_key=6f80061b8f7dc41f74dd9c9a459deda4&language=en-US&page=1&include_adult=false&query=${title}`)
     .then((res) => res.data)
     .then((movies) => {

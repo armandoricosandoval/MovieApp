@@ -19,6 +19,7 @@ import NavbarCont from './containers/NavbarCont';
 import PeliculasCont from './containers/PeliculasCont';
 import HomeCont from './containers/HomeCont';
 import SingleMovCont from './containers/SingleMovCont';
+import Categories from './components/Categories';
 
 
 const App = () => {   
@@ -31,6 +32,7 @@ const App = () => {
                 <Route exact path='/' component={HomeCont } />
                 <Route exact path='/movies' component={PeliculasCont } />
                 <Route path='/movies/:movieId' component={SingleMovCont } />
+                <Route path='/categories' component={Categories } />
                 <Route path="/signup" component={Signup} />
                 <Route path="/login" component={Login} />
                 <Route path="/forgot-password" component={ForgotPassword} />

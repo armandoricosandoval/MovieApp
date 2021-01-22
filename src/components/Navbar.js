@@ -18,7 +18,7 @@ const Navbar = ({ data, handleSubmit, handleChange, user, logout }) => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/login">Login</Link></li>
                         <li><Link to="/signup">Register</Link></li>
-                        <li><a href="www.linkedin.com/in/armando-rico-b14a90200">Contact</a></li>                        
+                        <li><Link to="/categories">Categories</Link></li>                        
                     </ul>
                     <ul id="search">
                     <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">

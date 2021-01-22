@@ -1,6 +1,6 @@
-import React, { useEffect,useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Card, Button, Alert ,FormControl,InputGroup} from "react-bootstrap"
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Card, Button, Alert } from "react-bootstrap"
 import { useAuth } from "../firebase/contexts/AuthContext"
 import { useHistory } from "react-router-dom"
 
@@ -8,9 +8,7 @@ export default function Dashboard() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
-  const dispatch = useDispatch();
-
-   
+     
  
 
   async function handleLogout() {
