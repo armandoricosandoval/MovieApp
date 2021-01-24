@@ -1,4 +1,4 @@
-
+Puedes ver el deploy aqui:https://armandomovie.netlify.app
 Hola Esta es una APP de Movies que permite ver peliculas de la aplicacion https://www.themoviedb.org/ 
 Esta Prueba tecnica para el cargo de developer fullstack 
 cumple con los siguientes requisitos:
