@@ -20,7 +20,7 @@ const SingleMovie = ({ currentMovie }) => {
         </div> */}
       <div className="containerMov">
         <div className="card1">
-          <div className="img-container" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w200${currentMovie.poster_path})` }}></div>
+          <div className="img-container" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w100${currentMovie.poster_path})` }}></div>
           <div className="card-content">
             <h4>{currentMovie.release_date}</h4>
             <h1>{currentMovie.original_title}</h1>

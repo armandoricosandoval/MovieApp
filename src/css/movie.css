@@ -1,33 +1,37 @@
 
 .containerMov{  
-  height: 500px;
+  
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px;
+  max-height: 900px;
+  padding-top: rem;
+  position: relative;
 }
 .card1 {
-  height: 400px;
+  
   background-color: #fff;
   max-width: 800px;
   box-shadow: 2px 2px 5px #9E9E9E, -1px -1px 5px #9E9E9E;
   border-radius: 3px;
-  display: grid;
-  
+  display: grid;  
+  max-height: 900px;
 }
 .card1 .img-container {
-  width: 280px;
+  width: 300px;
   height: 100%;
   grid-column: 2;
   background-color: #c1b7b4;
   background-size: cover;
   background-position: center center;
+  
 }
 .card-content {
   grid-column: 3 / 5;
   padding: 50px 30px;
   border-left: 1px solid #ccc;
-  align-content: center;
+  align-content: center;  
 }
 
 .card-content .author {
